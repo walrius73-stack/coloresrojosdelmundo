@@ -21,7 +21,6 @@
             overflow: hidden;
         }
 
-        /* Pantalla inicial */
         #inicio {
             position: fixed;
             inset: 0;
@@ -42,7 +41,6 @@
             object-fit: contain;
         }
 
-        /* Texto sobre la imagen */
         #mensaje {
             position: absolute;
             bottom: 7%;
@@ -56,7 +54,6 @@
             opacity: 0.9;
         }
 
-        /* Video */
         #video {
             display: none;
             position: fixed;
@@ -74,7 +71,7 @@
     <!-- IMAGEN INICIAL -->
     <div id="inicio" onclick="comenzar()">
 
-        <img id="imagen" src="imagen.jpg" alt="Para ti">
+        <img id="imagen" src="WhatsApp Image 2026-10-02 at 10.28.05 PM.jpeg" alt="Para ti">
 
         <div id="mensaje">
             Toca la pantalla ❤️
@@ -85,13 +82,13 @@
 
     <!-- CANCIÓN -->
     <audio id="musica" loop>
-        <source src="cancion.mp3" type="audio/mpeg">
+        <source src="Corazón Atómico [JVK9vvDHSGI].mp3" type="audio/mpeg">
     </audio>
 
 
     <!-- VIDEO -->
     <video id="video" playsinline controls>
-        <source src="video.mp4" type="video/mp4">
+        <source src="WhatsApp Video 2026-10-07 at 11.36.03 PM.mp4" type="video/mp4">
     </video>
 
 
