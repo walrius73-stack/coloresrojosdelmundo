@@ -1,0 +1,134 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        /* Pantalla inicial */
+        #inicio {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 1.2s ease;
+            z-index: 10;
+        }
+
+        #imagen {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Texto sobre la imagen */
+        #mensaje {
+            position: absolute;
+            bottom: 7%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            text-shadow: 0 2px 8px #000;
+            opacity: 0.9;
+        }
+
+        /* Video */
+        #video {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- IMAGEN INICIAL -->
+    <div id="inicio" onclick="comenzar()">
+
+        <img id="imagen" src="imagen.jpg" alt="Para ti">
+
+        <div id="mensaje">
+            Toca la pantalla ❤️
+        </div>
+
+    </div>
+
+
+    <!-- CANCIÓN -->
+    <audio id="musica" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- VIDEO -->
+    <video id="video" playsinline controls>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+
+    <script>
+
+        function comenzar() {
+
+            const inicio = document.getElementById("inicio");
+            const musica = document.getElementById("musica");
+            const video = document.getElementById("video");
+
+            /* Comenzar canción */
+            musica.play().catch(function(error) {
+                console.log("No se pudo reproducir la canción:", error);
+            });
+
+            /* Desvanecer imagen */
+            inicio.style.opacity = "0";
+
+            /* Esperar a que termine la transición */
+            setTimeout(function() {
+
+                inicio.style.display = "none";
+
+                video.style.display = "block";
+
+                /* Intentar comenzar video */
+                video.play().catch(function(error) {
+                    console.log("El video necesita interacción:", error);
+                });
+
+            }, 1200);
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
